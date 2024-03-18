@@ -129,7 +129,7 @@ public class TrigFunctionTest {
     @ParameterizedTest
     @CsvFileSource(resources = "/trigCsv/TrigPart.csv")
     @DisplayName("trig part test")
-    void trigFuncTest(Double x, Double expected) {
+    void trigPartTest(Double x, Double expected) {
         try {
             double result = tfc.checkAndCalculate(x, eps);
             trigPartLogger.log(x, result);

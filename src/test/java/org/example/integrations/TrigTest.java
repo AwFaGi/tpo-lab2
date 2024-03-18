@@ -65,7 +65,7 @@ public class TrigTest {
     @ParameterizedTest
     @CsvFileSource(resources = "/trigCsv/TrigPart.csv")
     @DisplayName("all mock test")
-    void trigFuncTest(Double x, Double expected) {
+    void trigTestMock(Double x, Double expected) {
         try {
             TrigonometricFunctionCalculator tfc = new TrigonometricFunctionCalculator(sin, cos, tan, cot, sec, csc);
             double result = tfc.checkAndCalculate(x, eps);
@@ -81,7 +81,7 @@ public class TrigTest {
     @ParameterizedTest
     @CsvFileSource(resources = "/trigCsv/TrigPart.csv")
     @DisplayName("all mock, real cos test")
-    void trigFuncTestWithSin(Double x, Double expected) {
+    void trigTestRealCos(Double x, Double expected) {
         try {
             TrigonometricFunctionCalculator tfc = new TrigonometricFunctionCalculator(sin, cosR, tan, cot, sec, csc);
             double result = tfc.checkAndCalculate(x, eps);
@@ -96,7 +96,7 @@ public class TrigTest {
     @ParameterizedTest
     @CsvFileSource(resources = "/trigCsv/TrigPart.csv")
     @DisplayName("all mock, real cos, sin test")
-    void trigFuncTestWithCos(Double x, Double expected) {
+    void trigTestRealCosSin(Double x, Double expected) {
         try {
             TrigonometricFunctionCalculator tfc = new TrigonometricFunctionCalculator(sinR, cosR, tan, cot, sec, csc);
             double result = tfc.checkAndCalculate(x, eps);
@@ -111,7 +111,7 @@ public class TrigTest {
     @ParameterizedTest
     @CsvFileSource(resources = "/trigCsv/TrigPart.csv")
     @DisplayName("all mock, real cos, sin, tan test")
-    void trigFuncTestWithCosDeeper(Double x, Double expected) {
+    void trigTestRealCosSinTan(Double x, Double expected) {
         try {
             TrigonometricFunctionCalculator tfc = new TrigonometricFunctionCalculator(sinR, cosR, tanR, cot, sec, csc);
             double result = tfc.checkAndCalculate(x, eps);
@@ -126,7 +126,7 @@ public class TrigTest {
     @ParameterizedTest
     @CsvFileSource(resources = "/trigCsv/TrigPart.csv")
     @DisplayName("all mock, real cos, sin, tan, cot test")
-    void trigFuncTestWithTan(Double x, Double expected) {
+    void trigTestRealCosSinTanCot(Double x, Double expected) {
         try {
             TrigonometricFunctionCalculator tfc = new TrigonometricFunctionCalculator(sinR, cosR, tanR, cotR, sec, csc);
             double result = tfc.checkAndCalculate(x, eps);
@@ -141,7 +141,7 @@ public class TrigTest {
     @ParameterizedTest
     @CsvFileSource(resources = "/trigCsv/TrigPart.csv")
     @DisplayName("all mock, real cos, sin, tan, cot, sec test")
-    void trigFuncTestWithTanDeeper(Double x, Double expected) {
+    void trigTestRealCosSinTanCotSec(Double x, Double expected) {
         try {
             TrigonometricFunctionCalculator tfc = new TrigonometricFunctionCalculator(sinR, cosR, tanR, cotR, secR, csc);
             double result = tfc.checkAndCalculate(x, eps);
@@ -156,7 +156,7 @@ public class TrigTest {
     @ParameterizedTest
     @CsvFileSource(resources = "/trigCsv/TrigPart.csv")
     @DisplayName("all real test")
-    void trigFuncTestWithCot(Double x, Double expected) {
+    void trigTestAllReal(Double x, Double expected) {
         try {
             TrigonometricFunctionCalculator tfc = new TrigonometricFunctionCalculator(sinR, cosR, tanR, cotR, secR, cscR);
             double result = tfc.checkAndCalculate(x, eps);

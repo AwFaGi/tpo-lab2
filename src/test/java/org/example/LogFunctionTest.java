@@ -102,7 +102,7 @@ public class LogFunctionTest {
     @ParameterizedTest
     @CsvFileSource(resources = "/logCsv/LogPart.csv")
     @DisplayName("log part test")
-    void logFuncTest(Double x, Double expected) {
+    void logPartTest(Double x, Double expected) {
         try {
             double result = lfc.checkAndCalculate(x, eps);
             lfcLogger.log(x, result);

@@ -64,7 +64,7 @@ public class LogTest {
     @ParameterizedTest
     @CsvFileSource(resources = "/logCsv/LogPart.csv")
     @DisplayName("all mocks test")
-    void trigFuncTest(Double x, Double expected) {
+    void LogMocks(Double x, Double expected) {
         try {
             LogarithmicFunctionCalculator lfc = new LogarithmicFunctionCalculator(ln, log2, log3, log5, log10);
             double result = lfc.checkAndCalculate(x, eps);
@@ -80,7 +80,7 @@ public class LogTest {
     @ParameterizedTest
     @CsvFileSource(resources = "/logCsv/LogPart.csv")
     @DisplayName("all mocks, real ln test")
-    void trigFuncTestWithSin(Double x, Double expected) {
+    void LogRealLn(Double x, Double expected) {
         try {
             LogarithmicFunctionCalculator lfc = new LogarithmicFunctionCalculator(lnR, log2, log3, log5, log10);
             double result = lfc.checkAndCalculate(x, eps);
@@ -95,7 +95,7 @@ public class LogTest {
     @ParameterizedTest
     @CsvFileSource(resources = "/logCsv/LogPart.csv")
     @DisplayName("all mocks, real ln, log2 test")
-    void trigFuncTestWithCos(Double x, Double expected) {
+    void LogRealLnLog2(Double x, Double expected) {
         try {
             LogarithmicFunctionCalculator lfc = new LogarithmicFunctionCalculator(lnR, log2R, log3, log5, log10);
             double result = lfc.checkAndCalculate(x, eps);
@@ -110,7 +110,7 @@ public class LogTest {
     @ParameterizedTest
     @CsvFileSource(resources = "/logCsv/LogPart.csv")
     @DisplayName("all mocks, real ln, log2, log3 test")
-    void trigFuncTestWithCosDeeper(Double x, Double expected) {
+    void LogRealLnLog2Log3(Double x, Double expected) {
         try {
             LogarithmicFunctionCalculator lfc = new LogarithmicFunctionCalculator(lnR, log2R, log3R, log5, log10);
             double result = lfc.checkAndCalculate(x, eps);
@@ -125,7 +125,7 @@ public class LogTest {
     @ParameterizedTest
     @CsvFileSource(resources = "/logCsv/LogPart.csv")
     @DisplayName("all mocks, real ln, log2, log3, log5 test")
-    void trigFuncTestWithTan(Double x, Double expected) {
+    void LogRealLnLog2Log3Log5(Double x, Double expected) {
         try {
             LogarithmicFunctionCalculator lfc = new LogarithmicFunctionCalculator(lnR, log2R, log3R, log5R, log10);
             double result = lfc.checkAndCalculate(x, eps);
@@ -140,7 +140,7 @@ public class LogTest {
     @ParameterizedTest
     @CsvFileSource(resources = "/logCsv/LogPart.csv")
     @DisplayName("all real test")
-    void trigFuncTestWithTanDeeper(Double x, Double expected) {
+    void LogAllReal(Double x, Double expected) {
         try {
             LogarithmicFunctionCalculator lfc = new LogarithmicFunctionCalculator(lnR, log2R, log3R, log5R, log10R);
             double result = lfc.checkAndCalculate(x, eps);

@@ -12,12 +12,19 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TrigFunctionTest {
     private final Sin sin = new Sin();
+    private final CsvFilePrinter sinLogger = new CsvFilePrinter("src/test/resources/logs/trig/sin.csv");
     private final Cos cos = new Cos();
+    private final CsvFilePrinter cosLogger = new CsvFilePrinter("src/test/resources/logs/trig/cos.csv");
     private final Tan tan = new Tan();
+    private final CsvFilePrinter tanLogger = new CsvFilePrinter("src/test/resources/logs/trig/tan.csv");
     private final Cot cot = new Cot();
+    private final CsvFilePrinter cotLogger = new CsvFilePrinter("src/test/resources/logs/trig/cot.csv");
     private final Sec sec = new Sec();
+    private final CsvFilePrinter secLogger = new CsvFilePrinter("src/test/resources/logs/trig/sec.csv");
     private final Csc csc = new Csc();
+    private final CsvFilePrinter cscLogger = new CsvFilePrinter("src/test/resources/logs/trig/csc.csv");
     private final TrigonometricFunctionCalculator tfc = new TrigonometricFunctionCalculator(sin, cos, tan, cot, sec, csc);
+    private final CsvFilePrinter trigPartLogger = new CsvFilePrinter("src/test/resources/logs/trig/trigPart.csv");
     private final double accuracy = 1e-6;
     private final double eps = 1e-9;
 
@@ -34,9 +41,8 @@ public class TrigFunctionTest {
     @DisplayName("sin(x) test")
     void sinTest(Double x, Double expected) {
         try {
-            CsvFilePrinter csvLogger = new CsvFilePrinter("src/test/resources/logs/trig/sin.csv");
             double result = sin.checkAndCalculate(x, eps);
-            csvLogger.log(x, result);
+            sinLogger.log(x, result);
             assertEquals(expected, result, accuracy);
         } catch (ArithmeticException e) {
             assertEquals("x should be <= 0", e.getMessage());
@@ -50,9 +56,8 @@ public class TrigFunctionTest {
     @DisplayName("cos(x) test")
     void cosTest(Double x, Double expected) {
         try {
-            CsvFilePrinter csvLogger = new CsvFilePrinter("src/test/resources/logs/trig/cos.csv");
             double result = cos.checkAndCalculate(x, eps);
-            csvLogger.log(x, result);
+            cosLogger.log(x, result);
             assertEquals(expected, result, accuracy);
         } catch (ArithmeticException e) {
             assertEquals("x should be <= 0", e.getMessage());
@@ -66,9 +71,8 @@ public class TrigFunctionTest {
     @DisplayName("tan(x) test")
     void tanTest(Double x, Double expected) {
         try {
-            CsvFilePrinter csvLogger = new CsvFilePrinter("src/test/resources/logs/trig/tan.csv");
             double result = tan.checkAndCalculate(x, eps);
-            csvLogger.log(x, result);
+            tanLogger.log(x, result);
             assertEquals(expected, result, accuracy);
         } catch (ArithmeticException e) {
             assertEquals("x should be <= 0", e.getMessage());
@@ -82,9 +86,8 @@ public class TrigFunctionTest {
     @DisplayName("cot(x) test")
     void cotTest(Double x, Double expected) {
         try {
-            CsvFilePrinter csvLogger = new CsvFilePrinter("src/test/resources/logs/trig/cot.csv");
             double result = cot.checkAndCalculate(x, eps);
-            csvLogger.log(x, result);
+            cotLogger.log(x, result);
             assertEquals(expected, result, accuracy);
         } catch (ArithmeticException e) {
             assertEquals("x should be <= 0", e.getMessage());
@@ -98,9 +101,8 @@ public class TrigFunctionTest {
     @DisplayName("sec(x) test")
     void secTest(Double x, Double expected) {
         try {
-            CsvFilePrinter csvLogger = new CsvFilePrinter("src/test/resources/logs/trig/sec.csv");
             double result = sec.checkAndCalculate(x, eps);
-            csvLogger.log(x, result);
+            secLogger.log(x, result);
             assertEquals(expected, result, accuracy);
         } catch (ArithmeticException e) {
             assertEquals("x should be <= 0", e.getMessage());
@@ -114,9 +116,8 @@ public class TrigFunctionTest {
     @DisplayName("csc(x) test")
     void cscTest(Double x, Double expected) {
         try {
-            CsvFilePrinter csvLogger = new CsvFilePrinter("src/test/resources/logs/trig/csc.csv");
             double result = csc.checkAndCalculate(x, eps);
-            csvLogger.log(x, result);
+            cscLogger.log(x, result);
             assertEquals(expected, result, accuracy);
         } catch (ArithmeticException e) {
             assertEquals("x should be <= 0", e.getMessage());
@@ -130,9 +131,8 @@ public class TrigFunctionTest {
     @DisplayName("trig part test")
     void trigFuncTest(Double x, Double expected) {
         try {
-            CsvFilePrinter csvLogger = new CsvFilePrinter("src/test/resources/logs/trig/trigPart.csv");
             double result = tfc.checkAndCalculate(x, eps);
-            csvLogger.log(x, result);
+            trigPartLogger.log(x, result);
             assertEquals(expected, result, accuracy);
         } catch (ArithmeticException e) {
             assertEquals("x should be <= 0", e.getMessage());

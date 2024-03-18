@@ -1,37 +1,67 @@
 package org.example;
 
 import org.example.log.LogarithmicFunctionCalculator;
-import org.example.trig.Cos;
-import org.example.trig.Sin;
+import org.example.trig.*;
 import org.example.trig.TrigonometricFunctionCalculator;
+
+import java.io.File;
+
 import static java.lang.Math.PI;
 
 public class Main {
     public static void main(String[] args) {
 
-        double[] a = new double[]{
-                -PI/6,
-                -PI/4,
-                -PI/3,
-                -2*PI/3,
-                -3*PI/4,
-                -5*PI/6,
-                -7*PI/6,
-                -5*PI/4,
-                -4*PI/3
-        };
+        String directoryPath = "src/main/resources/logs/log/";
+        File directory = new File(directoryPath);
+        directory.mkdirs();
 
-        for (double c: a) {
-            System.out.printf("%s, %s\n", c, new TrigonometricFunctionCalculator().calculateValue(c, 1e-9));
+        CsvFilePrinter sinLogger = new CsvFilePrinter("src/main/resources/logs/log/sin.csv");
+        CsvFilePrinter cosLogger = new CsvFilePrinter("src/main/resources/logs/log/cos.csv");
+        CsvFilePrinter tanLogger = new CsvFilePrinter("src/main/resources/logs/log/tan.csv");
+        CsvFilePrinter cotLogger = new CsvFilePrinter("src/main/resources/logs/log/cot.csv");
+        CsvFilePrinter secLogger = new CsvFilePrinter("src/main/resources/logs/log/sec.csv");
+        CsvFilePrinter cscLogger = new CsvFilePrinter("src/main/resources/logs/log/csc.csv");
+        CsvFilePrinter trigLogger = new CsvFilePrinter("src/main/resources/logs/log/trig.csv");
+
+        for (int i = 1; i <= 20; i += 1){
+            double e = PI * (i/20.0) - (PI/2);
+            try {
+                sinLogger.log(e, new Sin().calculateValue(e, 1e-9));
+            } catch (Exception ignored) {
+
+            }
+            try {
+                cosLogger.log(e, new Cos().calculateValue(e, 1e-9));
+            } catch (Exception ignored) {
+
+            }
+            try {
+                tanLogger.log(e, new Tan().calculateValue(e, 1e-9));
+            } catch (Exception ignored) {
+
+            }
+            try {
+                cotLogger.log(e, new Cot().calculateValue(e, 1e-9));
+            }catch (Exception ignored) {
+
+            }
+            try {
+                secLogger.log(e, new Sec().calculateValue(e, 1e-9));
+            }catch (Exception ignored) {
+
+            }
+            try{
+                cscLogger.log(e, new Csc().calculateValue(e, 1e-9));
+            }catch (Exception ignored) {
+
+            }
+            try {
+                trigLogger.log(e, new TrigonometricFunctionCalculator().calculateValue(e, 1e-9));
+            }catch (Exception ignored) {
+
+            }
+
         }
 
-//        for (int i = 1; i <= 15; i += 1){
-//            if (i == 5) continue;
-//            System.out.printf("%s, %s\n", -i/5.0, new TrigonometricFunctionCalculator().calculateValue(-i/5.0, 0.000001));
-//            //System.out.println(String.format("%s, %s", i/5.0, Math.log(i/5.0)));
-//        }
-
-//        System.out.println(new Sin().calculateValue(Math.PI/4, 0.000001));
-//        System.out.println(new Cos().calculateValue(Math.PI/4, 0.000001));
     }
 }
